@@ -1,0 +1,92 @@
+//STUDENT GRADE CALCULATOR
+
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number of subjects
+        System.out.print("Enter the number of subjects: ");
+        int n = scanner.nextInt();
+
+        // Array to store marks
+        int[] marks = new int[n];
+        int totalMarks = 0;
+
+        // Input marks for each subject
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter marks for subject " + (i + 1) + " (out of 100): ");
+            marks[i] = scanner.nextInt();
+
+        // Validate input
+        while (marks[i] < 0 || marks[i] > 100) {
+            System.out.print("Invalid input! Enter marks between 0 and 100: ");
+               marks[i] = scanner.nextInt();
+            }
+            totalMarks += marks[i];
+        }
+
+        // Calculate average percentage
+        double averagePercentage = (double) totalMarks / n;
+
+        // Determine grade
+        char grade;
+        if (averagePercentage >= 90) {
+            grade = 'O';
+        } else if (averagePercentage >= 80) {
+            grade = 'A';
+        } else if (averagePercentage >= 70) {
+            grade = 'B';
+        } else if (averagePercentage >= 60) {
+            grade = 'C';
+        } else if (averagePercentage >= 50) {
+            grade = 'D';
+        } else if (averagePercentage >= 40){
+            grade = 'E';
+        }else {
+            grade = 'F';
+        }
+
+        // Display results
+        System.out.println("\n---Student Grade Report---");
+        System.out.println("\nTotal Marks : " + totalMarks);
+        System.out.println("Average Percentage : " + averagePercentage + "%");
+        System.out.println("Grade : " + grade);
+
+        scanner.close();
+    }
+}
+
+OUTPUT :
+
+Test case 1 :
+Enter the number of subjects: 5
+Enter marks for subject 1 (out of 100): 94
+Enter marks for subject 2 (out of 100): 87
+Enter marks for subject 3 (out of 100): 91
+Enter marks for subject 4 (out of 100): 84
+Enter marks for subject 5 (out of 100): 89
+
+---Student Grade Report---
+
+Total Marks : 445
+Average Percentage : 89.0%
+Grade : A
+
+=== Code Execution Successful ===
+
+Test case 2 :
+Enter the number of subjects: 4
+Enter marks for subject 1 (out of 100): 68
+Enter marks for subject 2 (out of 100): 77
+Enter marks for subject 3 (out of 100): 80
+Enter marks for subject 4 (out of 100): 69
+
+---Student Grade Report---
+
+Total Marks : 294
+Average Percentage : 73.5%
+Grade : B
+
+=== Code Execution Successful ===
